@@ -5,7 +5,8 @@
   "author": "Luis Felipe Zaguini",
   "license": "MIT",
   "scripts": {
-    "start": "node -r dotenv/config server.js"
+    "start": "node -r dotenv/config server.js",
+    "pact:test": "node -r dotenv/config run-pact-tests-locally.js"
   },
   "dependencies": {
     "@apollo/gateway": "^0.19.1",
@@ -14,6 +15,7 @@
     "apollo-server": "^2.16.1",
     "apollo-server-express": "^2.17.0",
     "express": "^4.17.1",
+    "glob": "^7.1.6",
     "graphql": "^15.3.0"
   },
   "devDependencies": {
