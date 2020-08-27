@@ -5,6 +5,7 @@
   "author": "Luis Felipe Zaguini",
   "license": "MIT",
   "scripts": {
+    "start": "./start_broker.sh",
     "register-webhook": "node register-webhook.js"
   },
   "dependencies": {

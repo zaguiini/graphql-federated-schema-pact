@@ -10,5 +10,5 @@ publisher.publishPacts({
   pactBroker: "http://localhost:3000",
   pactBrokerUsername: "user",
   pactBrokerPassword: "password",
-  consumerVersion: "1",
+  consumerVersion: process.argv[2],
 });

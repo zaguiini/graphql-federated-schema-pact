@@ -1,4 +1,4 @@
 node_modules
 pacts
 schema.graphql
-.log
+*.log

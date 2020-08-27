@@ -7,6 +7,7 @@
   "scripts": {
     "prepact": "rm -rf pacts",
     "pact": "jest",
+    "can-i-deploy": "./can-i-deploy.sh",
     "publish-pact": "node publishPact.js"
   },
   "dependencies": {
