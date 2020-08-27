@@ -5,10 +5,7 @@
   "author": "Luis Felipe Zaguini",
   "license": "MIT",
   "scripts": {
-    "gateway": "node -r dotenv/config server.js",
-    "premock-gateway": "yarn download-schema",
-    "mock-gateway": "node -r dotenv/config mock.js",
-    "download-schema": "apollo client:download-schema schema.graphql --endpoint=http://localhost:4000/gateway"
+    "start": "node -r dotenv/config server.js"
   },
   "dependencies": {
     "@apollo/gateway": "^0.19.1",

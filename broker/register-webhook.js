@@ -11,7 +11,7 @@ axios
       ],
       request: {
         method: "POST",
-        url: "http://host.docker.internal:3999/verify-consumer",
+        url: "http://host.docker.internal:4000/verify-consumer",
       },
     },
     {

@@ -31,8 +31,8 @@ describe("Pact contract with Gateway GraphQL API", () => {
           body: {
             data: {
               viewer: {
-                id: ID(),
-                name: integer(30),
+                id: somethingLike("meu-id"),
+                name: somethingLike("Zaguini"),
                 __typename: "Viewer",
               },
             },
