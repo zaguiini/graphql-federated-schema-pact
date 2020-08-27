@@ -1,0 +1,119 @@
+I, [2020-08-27T15:02:29.912779 #44008]  INFO -- : Registered expected interaction POST /gateway
+D, [2020-08-27T15:02:29.913190 #44008] DEBUG -- : {
+  "description": "GetViewerData",
+  "providerState": "talent is logged in and requests his data",
+  "request": {
+    "method": "POST",
+    "path": "/gateway",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "operationName": "GetViewerData",
+      "query": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "query GetViewerData {\n  viewer {\n    id\n    name\n    banana\n    __typename\n  }\n}\n",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "query\\s*GetViewerData\\s*\\{\\s*viewer\\s*\\{\\s*id\\s*name\\s*banana\\s*__typename\\s*\\}\\s*\\}\\s*"
+          }
+        }
+      },
+      "variables": {
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "body": {
+      "data": {
+        "viewer": {
+          "id": {
+            "json_class": "Pact::Term",
+            "data": {
+              "generate": "VjEtTWVSb2xlLTEyMjc4ODQ",
+              "matcher": {
+                "json_class": "Regexp",
+                "o": 0,
+                "s": "[A-Za-z0-9]{4,24}"
+              }
+            }
+          },
+          "name": {
+            "json_class": "Pact::SomethingLike",
+            "contents": "Zaguini"
+          },
+          "banana": {
+            "json_class": "Pact::SomethingLike",
+            "contents": false
+          },
+          "__typename": "Viewer"
+        }
+      }
+    }
+  },
+  "metadata": null
+}
+I, [2020-08-27T15:02:29.927186 #44008]  INFO -- : Received request POST /gateway
+D, [2020-08-27T15:02:29.927276 #44008] DEBUG -- : {
+  "path": "/gateway",
+  "query": "",
+  "method": "post",
+  "body": {
+    "operationName": "GetViewerData",
+    "variables": {
+    },
+    "query": "query GetViewerData {\n  viewer {\n    id\n    name\n    banana\n    __typename\n  }\n}\n"
+  },
+  "headers": {
+    "Content-Length": "148",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+    "User-Agent": "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)",
+    "Accept-Encoding": "gzip,deflate",
+    "Connection": "close",
+    "Host": "localhost:5202",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2020-08-27T15:02:29.927552 #44008]  INFO -- : Found matching response for POST /gateway
+D, [2020-08-27T15:02:29.927681 #44008] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8"
+  },
+  "body": {
+    "data": {
+      "viewer": {
+        "id": {
+          "json_class": "Pact::Term",
+          "data": {
+            "generate": "VjEtTWVSb2xlLTEyMjc4ODQ",
+            "matcher": {
+              "json_class": "Regexp",
+              "o": 0,
+              "s": "[A-Za-z0-9]{4,24}"
+            }
+          }
+        },
+        "name": {
+          "json_class": "Pact::SomethingLike",
+          "contents": "Zaguini"
+        },
+        "banana": {
+          "json_class": "Pact::SomethingLike",
+          "contents": false
+        },
+        "__typename": "Viewer"
+      }
+    }
+  }
+}
+I, [2020-08-27T15:02:29.936055 #44008]  INFO -- : Verifying - interactions matched
+I, [2020-08-27T15:02:29.938806 #44008]  INFO -- : Cleared interactions
+I, [2020-08-27T15:02:29.942963 #44008]  INFO -- : Updating pact for Gateway at /Users/zaguini/Development/toptal/pocs/graphql-gateway-contract-test/consumer/pacts/talent_portal-gateway.json

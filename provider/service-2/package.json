@@ -1,0 +1,12 @@
+{
+  "name": "service-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Luis Felipe Zaguini",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/federation": "^0.19.1",
+    "apollo-server-express": "^2.16.1",
+    "express": "^4.17.1"
+  }
+}
