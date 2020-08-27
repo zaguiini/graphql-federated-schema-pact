@@ -1,4 +1,6 @@
-const { ApolloServer } = require("apollo-server");
+const express = require("express");
+
+const { ApolloServer } = require("apollo-server-express");
 const { ApolloGateway } = require("@apollo/gateway");
 
 const gateway = new ApolloGateway({
@@ -12,8 +14,13 @@ const server = new ApolloServer({
   gateway,
   playground: true,
   subscriptions: false,
+  introspection: true,
 });
 
-server.listen().then(({ url }) => {
-  console.log(`Listening at ${url}`);
+const app = express();
+
+server.applyMiddleware({ app, path: "/gateway" });
+
+app.listen(process.env.GATEWAY_PORT, () => {
+  console.log(`Listening on port ${process.env.GATEWAY_PORT}`);
 });

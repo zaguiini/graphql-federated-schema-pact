@@ -2,6 +2,5 @@ query GetViewerData {
   viewer {
     id
     name
-    banana
   }
 }

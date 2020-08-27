@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "prepact": "rm -rf pacts",
-    "pact": "yarn test"
+    "pact": "jest",
+    "publish-pact": "node publishPact.js"
   },
   "dependencies": {
     "@apollo/client": "^3.1.3",

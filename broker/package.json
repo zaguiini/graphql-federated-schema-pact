@@ -1,0 +1,13 @@
+{
+  "name": "broker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Luis Felipe Zaguini",
+  "license": "MIT",
+  "scripts": {
+    "register-webhook": "node register-webhook.js"
+  },
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
+}

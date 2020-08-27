@@ -9,7 +9,7 @@ const {
 
 const GetViewerData = require("../getViewerData.gql");
 
-const { boolean, somethingLike } = Matchers;
+const { boolean, somethingLike, integer } = Matchers;
 
 describe("Pact contract with Gateway GraphQL API", () => {
   const { provider, client } = setupGatewayPactIntegration();
@@ -32,8 +32,7 @@ describe("Pact contract with Gateway GraphQL API", () => {
             data: {
               viewer: {
                 id: ID(),
-                name: somethingLike("Zaguini"),
-                banana: boolean(false),
+                name: integer(30),
                 __typename: "Viewer",
               },
             },

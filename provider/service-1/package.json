@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Luis Felipe Zaguini",
   "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "@apollo/federation": "^0.19.1",
     "apollo-server-express": "^2.16.1",
