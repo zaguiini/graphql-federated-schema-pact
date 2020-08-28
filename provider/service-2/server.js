@@ -12,9 +12,13 @@ const typeDefs = gql`
   }
 `;
 
+const helloResponse = new Map();
+const setDefault = () => helloResponse.set("content", "Hello world!");
+setDefault();
+
 const resolvers = {
   Query: {
-    hello: () => "Hello world!",
+    hello: () => helloResponse.get("content"),
   },
 };
 
@@ -26,8 +30,20 @@ const server = new ApolloServer({
     },
   ]),
   playground: true,
+  context: ({ req }) => {
+    // Here we customize data according to the provider state
+    if (
+      req.headers["x-pact-provider-state"] ===
+      "talent is not logged in and requests data"
+    ) {
+      helloResponse.set("content", null);
+    } else {
+      setDefault();
+    }
+  },
   introspection: true,
 });
+
 server.applyMiddleware({ app });
 
 app.listen({ port: PORT }, () =>

@@ -3,4 +3,5 @@ query GetViewerData {
     id
     name
   }
+  hello
 }

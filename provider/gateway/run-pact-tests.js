@@ -2,15 +2,43 @@ const { Verifier } = require("@pact-foundation/pact");
 const path = require("path");
 const glob = require("glob");
 
+class CurrentProviderStateStore {
+  getState() {
+    return this.state;
+  }
+
+  setState(state) {
+    this.state = state;
+  }
+}
+
+const currentStateStore = new CurrentProviderStateStore();
+
+const states = [
+  "talent is logged in and requests his data",
+  "talent is not logged in and requests data",
+];
+
+const stateHandlers = states.reduce((acc, next) => {
+  acc[next] = () => {
+    currentStateStore.setState(next);
+    return Promise.resolve();
+  };
+
+  return acc;
+}, {});
+
 const commonOptions = {
   provider: "Gateway",
   providerBaseUrl: `http://localhost:${process.env.GATEWAY_PORT}`,
+  providerVersion: "1",
+  stateHandlers: stateHandlers,
   requestFilter: (req, _, next) => {
-    req.headers["X-Pact-Test"] = "true";
+    // Here we set the Gateway provider state which propagates through the services
+    req.headers["X-Pact-Provider-State"] = currentStateStore.getState();
 
     next();
   },
-  providerVersion: "1",
 };
 
 const noop = () => {};
