@@ -4,6 +4,12 @@ You better open some tabs.
 
 We're getting the desired provider state name and injecting it as a header. Then, this header is forwarded to the micro services and the micro services populates databases and stuff. After that, the queries are executed normally.
 
+## But there's still a problem...
+
+For this model to function properly, we need to Pact test the gateway with the "deploy candidate" micro service version and, with this candidate, verify that the contracts aren't broken.
+
+One alternative would be to creating something like a "Temploy" of this service and then create an on-the-fly Gateway with the production services + the "update candidate". Then, with this, run the consumer contracts and, if everything goes right, deploy the "deploy candidate" service.
+
 ### On `gateway` folder
 
 - Start `service-1` (`yarn start`) and `service-2` (`yarn start`), then `gateway` (`yarn gateway`). Keep all three of them running;
