@@ -1,5 +1,9 @@
 You better open some tabs.
 
+# What is happening here
+
+We're getting the desired provider state name and injecting it as a header. Then, this header is forwarded to the micro services and the micro services populates databases and stuff.
+
 ### On `gateway` folder
 
 - Start `service-1` (`yarn start`) and `service-2` (`yarn start`), then `gateway` (`yarn gateway`). Keep all three of them running;
