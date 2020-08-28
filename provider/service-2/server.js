@@ -48,6 +48,6 @@ server.applyMiddleware({ app });
 
 app.listen({ port: PORT }, () =>
   console.log(
-    `🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
+    `🚀 Service 2 ready at http://localhost:${PORT}${server.graphqlPath}`
   )
 );

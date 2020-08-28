@@ -45,11 +45,13 @@ app.post("/verify-consumer", (_, res) => {
     remote: true,
   });
 
-  res.send(200);
+  res.sendStatus(200);
 });
 
 server.applyMiddleware({ app, path: "/gateway" });
 
 app.listen(process.env.GATEWAY_PORT, () => {
-  console.log(`Listening on port ${process.env.GATEWAY_PORT}`);
+  console.log(
+    `🚀 Gateway ready at http://localhost:${process.env.GATEWAY_PORT}${server.graphqlPath}`
+  );
 });
